@@ -1,6 +1,4 @@
 console.log("Hello, world!");
-
-
 /*
     This section of code handles the logic
     regarding the initial button click/unclick
