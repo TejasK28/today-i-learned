@@ -105,8 +105,7 @@ return (
 }
 
 function FactList()
-{
-
+{   
   // Temporary variable
   var facts = initialFacts;
 
