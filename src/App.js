@@ -1,4 +1,5 @@
 import './style.css'
+import { useState } from 'react';
 
 const CATEGORIES = [
   { name: "technology", color: "#3b82f6" },
@@ -46,6 +47,20 @@ const initialFacts = [
 ];
 
 
+function Counter()
+{
+
+  const [count, setCount] = useState(0, function(){
+    count = count + 1;
+  });
+
+  return <div>
+    <span style={{paddingRight:'10px', fontSize:'40px'}}>{count}</span>
+    <button className='btn btn-large' onClick={() => setCount((c) => c+1)}>+1</button>
+  </div>
+}
+
+
 function App(){
 
   const AppTitle = "Today I learned";
@@ -60,6 +75,8 @@ function App(){
         </div>
         <button className="share-a-fact-btn">Share a fact</button>
     </header>
+
+    <Counter />
 
     {/* NEW FACT FORM */}
     <NewFactForm />
