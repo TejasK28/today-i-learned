@@ -97,13 +97,16 @@ function App(){
 function NewFactForm()
 {
   const [input, setInput] = useState("");
+  const [source, setSource] = useState("");
+  const [cat, setCat] = useState("");
 
   return <form className="fact-form">
 
-<input type="text" placeholder="Share a fact with the world" value={input} onChange={(e) => setInput(e.target.value)}/>
+        <input type="text" placeholder="Share a fact with the world" value={input} onChange={(e) => setInput(e.target.value)}/>
         <span>200</span>
-        <input type="text" placeholder="Trustworthy source..."/>
-        <select>
+        <input type="text" placeholder="Trustworthy source..." value={source} onChange={(e) => setSource(e.target.value)}/>
+
+        <select value = {cat} onChange={(e)=>setCat(e.target.value)}>
             <option value="">Choose category:</option>
             {CATEGORIES.map((cat) => (<option key= {cat.name} value={cat.name}>{cat.name.toUpperCase()}</option>))}
         </select>
