@@ -76,7 +76,6 @@ function App(){
         <button className="share-a-fact-btn">Share a fact</button>
     </header>
 
-    <Counter />
 
     {/* NEW FACT FORM */}
     <NewFactForm />
@@ -97,7 +96,19 @@ function App(){
 
 function NewFactForm()
 {
-  return <form className="fact-form">Fact Form</form>
+  const [input, setInput] = useState("");
+
+  return <form className="fact-form">
+
+<input type="text" placeholder="Share a fact with the world" value={input} onChange={(e) => setInput(e.target.value)}/>
+        <span>200</span>
+        <input type="text" placeholder="Trustworthy source..."/>
+        <select>
+            <option value="">Choose category:</option>
+            {CATEGORIES.map((cat) => (<option key= {cat.name} value={cat.name}>{cat.name.toUpperCase()}</option>))}
+        </select>
+        <button className="post-btn">Post</button>
+  </form>
 }
 
 function CategoryFilter()
