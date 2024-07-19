@@ -100,17 +100,26 @@ function NewFactForm()
   const [source, setSource] = useState("");
   const [cat, setCat] = useState("");
 
-  return <form className="fact-form">
+  function handlePost(e)
+  {
+    e.preventDefault();
+    console.log("Form Submitted");
+  }
+  
 
-        <input type="text" placeholder="Share a fact with the world" value={input} onChange={(e) => setInput(e.target.value)}/>
-        <span>200</span>
+  return <form className="fact-form" onSubmit={handlePost}>
+
+        <input maxLength={200} type="text" placeholder="Share a fact with the world" value={input} onChange={(e) => setInput(e.target.value)}/>
+        <span>{200 - input.length}</span>
         <input type="text" placeholder="Trustworthy source..." value={source} onChange={(e) => setSource(e.target.value)}/>
 
         <select value = {cat} onChange={(e)=>setCat(e.target.value)}>
             <option value="">Choose category:</option>
             {CATEGORIES.map((cat) => (<option key= {cat.name} value={cat.name}>{cat.name.toUpperCase()}</option>))}
         </select>
-        <button className="post-btn">Post</button>
+
+
+        <button className="post-btn" >Post</button>
   </form>
 }
 
